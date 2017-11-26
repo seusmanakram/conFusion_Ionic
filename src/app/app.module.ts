@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http'
+
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
@@ -20,6 +22,7 @@ import { PromotionProvider } from '../providers/promotion/promotion';
 import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
 
 import { baseURL } from '../shared/baseurl';
+import { FavoriteProvider } from '../providers/favorite/favorite';
 @NgModule({
   declarations: [
     MyApp,
@@ -32,7 +35,8 @@ import { baseURL } from '../shared/baseurl';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +56,8 @@ import { baseURL } from '../shared/baseurl';
     LeaderProvider,
     PromotionProvider,
     ProcessHttpmsgProvider,
-    {provide: 'BaseURL', useValue:baseURL}
+    {provide: 'BaseURL', useValue:baseURL},
+    FavoriteProvider
   ]
 })
 export class AppModule {}
