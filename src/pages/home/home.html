@@ -10,97 +10,107 @@
 
 <ion-content padding>
 
-  <!-- Ionic Card starts -->
-
-  <ion-card *ngIf="dish">
-    <img src="{{BaseURL+dish.image}}" alt="">
-    <ion-card-content>
-
-      <ion-card-title>
-        {{dish.name | uppercase}}
-      </ion-card-title>
-
-      <p>{{dish.description}}</p>
-
-    </ion-card-content>
-
-  </ion-card>
-  <!-- Ionic Card ends here  -->
-
-  <div [hidden]="dish || dishErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading..... Please Wait</h4>
-  </div>
-
-  <div *ngIf="dishErrMess">
-
-    <h3>Error Loading!</h3>
-      <h4>
-        {{dishErrMess}}
-      </h4>
-  </div>
+  <ion-grid>
+    <ion-row align-items-center>
 
 
+      <ion-col col-12 col-lg-4>
+        <!-- Ionic Card starts -->
 
-  <ion-card *ngIf="promotion">
-    <img src="{{BaseURL+promotion.image}}" alt="">
-    <ion-card-content>
+        <ion-card *ngIf="dish">
+          <img src="{{BaseURL+dish.image}}" alt="">
+          <ion-card-content>
 
-      <ion-card-title>
-        {{promotion.name | uppercase}}
-      </ion-card-title>
+            <ion-card-title>
+              {{dish.name | uppercase}}
+            </ion-card-title>
 
-      <p>{{promotion.description}}</p>
+            <p>{{dish.description}}</p>
 
-    </ion-card-content>
+          </ion-card-content>
 
-  </ion-card>
-  <!-- Ionic Card ends here  -->
+        </ion-card>
+        <!-- Ionic Card ends here  -->
 
-  <div [hidden]="promotion || promoErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading..... Please Wait</h4>
-  </div>
+        <div [hidden]="dish || dishErrMess">
+          <ion-spinner></ion-spinner>
+          <h4>Loading..... Please Wait</h4>
+        </div>
 
-  <div *ngIf="promoErrMess">
+        <div *ngIf="dishErrMess">
 
-    <h3>Error Loading!</h3>
-      <h4>
-        {{promoErrMess}}
-      </h4>
+          <h3>Error Loading!</h3>
+          <h4>
+            {{dishErrMess}}
+          </h4>
+        </div>
+      </ion-col>
+  
+      <ion-col col-12 col-lg-4>
+        <ion-card *ngIf="promotion">
+          <img src="{{BaseURL+promotion.image}}" alt="">
+          <ion-card-content>
+
+            <ion-card-title>
+              {{promotion.name | uppercase}}
+            </ion-card-title>
+
+            <p>{{promotion.description}}</p>
+
+          </ion-card-content>
+
+        </ion-card>
+        <!-- Ionic Card ends here  -->
+
+        <div [hidden]="promotion || promoErrMess">
+          <ion-spinner></ion-spinner>
+          <h4>Loading..... Please Wait</h4>
+        </div>
+
+        <div *ngIf="promoErrMess">
+
+          <h3>Error Loading!</h3>
+          <h4>
+            {{promoErrMess}}
+          </h4>
 
 
 
-  </div>
+        </div>
+      </ion-col>
+  
+      <ion-col col-12 col-lg-4>
+        <ion-card *ngIf="leader">
+          <img src="{{BaseURL+leader.image}}" alt="">
+          <ion-card-content>
 
+            <ion-card-title>
+              {{leader.name | uppercase}}
+            </ion-card-title>
+            <p>{{leader.designation}}</p>
+            <p>{{leader.description}}</p>
 
-  <ion-card *ngIf="leader">
-    <img src="{{BaseURL+leader.image}}" alt="">
-    <ion-card-content>
+          </ion-card-content>
 
-      <ion-card-title>
-        {{leader.name | uppercase}}
-      </ion-card-title>
-      <p>{{leader.designation}}</p>
-      <p>{{leader.description}}</p>
+        </ion-card>
+        <!-- Ionic Card ends here  -->
 
-    </ion-card-content>
+        <div [hidden]="leader || leaderErrMess">
+          <ion-spinner></ion-spinner>
+          <h4>Loading..... Please Wait</h4>
+        </div>
 
-  </ion-card>
-  <!-- Ionic Card ends here  -->
+        <div *ngIf="leaderErrMess">
 
-  <div [hidden]="leader || leaderErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading..... Please Wait</h4>
-  </div>
-
-  <div *ngIf="leaderErrMess">
-
-    <h3>Error Loading!</h3>
-      <h4>
-        {{leaderErrMess}}
-      </h4>
-  </div>
+          <h3>Error Loading!</h3>
+          <h4>
+            {{leaderErrMess}}
+          </h4>
+        </div>
+      </ion-col>
+    
+    </ion-row>
+  </ion-grid>
 
   <ion-fab right bottom>
 
@@ -112,9 +122,9 @@
       <button ion-fab class="btn-twitter"><ion-icon name="logo-twitter"></ion-icon></button>
       <button ion-fab class="btn-facebook"><ion-icon name="logo-facebook"></ion-icon></button>
       <button ion-fab class="btn-linkedin"><ion-icon name="logo-linkedin"></ion-icon></button>
-      
-    
-    
+
+
+
     </ion-fab-list>
   </ion-fab>
 
