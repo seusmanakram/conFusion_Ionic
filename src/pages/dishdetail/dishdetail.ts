@@ -29,6 +29,7 @@ export class DishdetailPage {
     private toastCtrl:ToastController,
     public actionSheetCtrl:ActionSheetController,
     public modalCtrl: ModalController,
+   
 
   @Inject('BaseURL') private BaseURL,
   private favoriteservice:FavoriteProvider) {

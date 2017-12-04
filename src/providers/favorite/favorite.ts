@@ -1,9 +1,13 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Dish} from '../../shared/dish';
 import {Observable} from 'rxjs/Observable';
 import {DishProvider} from '../dish/dish';
 import 'rxjs/add/operator/map';
+import {Storage} from '@ionic/storage';
+//import {Favourites} from '../../shared/favourites';
+
 /*
   Generated class for the FavoriteProvider provider.
 
@@ -14,23 +18,43 @@ import 'rxjs/add/operator/map';
 export class FavoriteProvider {
 
   favorites:Array<any>;
-
+  // fav:Favourites ={
+  //   id :''
+  // };
+ 
 
   constructor(public http: HttpClient,
-    private dishservice:DishProvider) {
+    private dishservice:DishProvider,
+    private storage:Storage) {
     console.log('Hello FavoriteProvider Provider');
     this.favorites = [];
+    
+    
+    storage.get('favorites').then(data => {
+      if (data) 
+        this.favorites = data;
+      else
+        this.favorites = [];
+    });
+
 
   }
 
+
+ 
 
   addFavorite(id:number):boolean
   {
-    if(!this.isFavorite(id))
+    if(!this.isFavorite(id)){
       this.favorites.push(id);
+      this.storage.set('fav',this.favorites);
+    }
     return true;
     
   }
+  
+  
+
 
 
   isFavorite(id:number):boolean{
@@ -47,6 +71,7 @@ export class FavoriteProvider {
     let index = this.favorites.indexOf(id);
     if(index >= 0){
       this.favorites.splice(index,1);
+      this.storage.set('fav',this.favorites);      
       return this.getFavorites();
     }else{
       console.log('Deleting non-existant favorite',id);
@@ -54,5 +79,9 @@ export class FavoriteProvider {
     }
 
   }
+
+
+
+
 
 }

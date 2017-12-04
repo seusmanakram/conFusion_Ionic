@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams,
 import {FavoriteProvider} from '../../providers/favorite/favorite';
 import {Dish} from '../../shared/dish';
 
+
 /**
  * Generated class for the FavoritesPage page.
  *
@@ -22,12 +23,14 @@ export class FavoritesPage implements OnInit {
   errMess:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  private favoriteservice:FavoriteProvider,
-  private toastCtrl:ToastController,
-  private loadingCtrl:LoadingController,
-  private alertCtrl:AlertController,
-@Inject('BaseURL') private BaseURL) {
-  }
+      private favoriteservice:FavoriteProvider,
+      private toastCtrl:ToastController,
+      private loadingCtrl:LoadingController,
+      private alertCtrl:AlertController,
+      
+      @Inject('BaseURL') private BaseURL) {
+
+      }
 
 
 
@@ -91,4 +94,5 @@ export class FavoritesPage implements OnInit {
   }
 
 
+  
 }
