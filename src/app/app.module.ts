@@ -28,6 +28,8 @@ import {EmailComposer} from '@ionic-native/email-composer';
 import {SocialSharing} from '@ionic-native/social-sharing';
 import {Camera} from '@ionic-native/camera';
 import {Network} from '@ionic-native/network';
+import {CallNumber} from '@ionic-native/call-number';
+
 
 import { DishProvider } from '../providers/dish/dish';
 import { LeaderProvider } from '../providers/leader/leader';
@@ -83,6 +85,7 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     SocialSharing,
     Camera,
     Network,
+    CallNumber,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DishProvider,
     LeaderProvider,
