@@ -28,8 +28,11 @@
     <img src="{{image}}" alt="">
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <ion-col col-6>
           <button ion-button (click)="getPicture()">Take Picture</button>
+        </ion-col>
+        <ion-col col-6>
+            <button ion-button (click)="getFromLibrary()">Get From Library</button>
         </ion-col>
         <ion-col></ion-col>
       </ion-row>

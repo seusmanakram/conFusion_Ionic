@@ -68,9 +68,40 @@ export class RegisterPage {
         this.image = imageData;
       },
     (err) => {
-      console.log('Error capturing picture')
-    } )
+      console.log('Error capturing picture');
+    })
+
+   
   }
+
+
+  getFromLibrary(){
+    const options: CameraOptions ={
+      sourceType: 0,
+      quality: 100,
+      targetHeight:100,
+      targetWidth:100,
+      correctOrientation: true,
+      allowEdit: true,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType:this.camera.MediaType.PICTURE,
+      cameraDirection: this.camera.Direction.FRONT
+      
+    };
+    this.camera.getPicture(options)
+      .then( (imageData) => {
+        this.image = imageData;
+      },
+    (err) => {
+      console.log('Error uploading picture');
+    })
+
+
+
+
+  }
+
 
   onSubmit(){
     console.log(this.registerForm.value);

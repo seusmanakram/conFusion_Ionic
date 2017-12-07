@@ -40,6 +40,7 @@ export class ContactPage {
 
   }
 
+  
   callRestaurant(){
     
       this.callNumber.callNumber("+852 8765 4321", true)
